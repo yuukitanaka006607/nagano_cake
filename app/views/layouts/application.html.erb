@@ -11,6 +11,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if customer_signed_in? %>
+        <h1>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </h1>
+      <% else %>
+        <h1>
+          <%= link_to "About", public_homes_about_path %>
+        </h1>
+        <h1>
+          <%= link_to "新規登録", new_customer_registration_path %>
+        </h1>
+        <h1>
+          <%= link_to "ログイン", new_customer_session_path %>
+        </h1>
+      <% end %>
+    </header>
+      <%= yield %>
   </body>
 </html>
