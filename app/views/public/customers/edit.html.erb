@@ -1,0 +1,12 @@
+<h1>会員情報編集</h1>
+<%= form_with model: @customer do |f| %>
+  <p>氏名 <%= f.text_field :last_name, autoforcus: true, id:"inputLastName" %>
+  <%= f.text_field :first_name, autoforcus: true, id:"inputFirstName" %></p>
+  <p>フリガナ <%= f.text_field :last_name_kana, autoforcus: true, id:"inputLastNameKana" %>
+              <%= f.text_field :first_name_kana, autoforcus: true, id:"inputFirstNameKana" %></p>
+  <p>郵便番号 <%= f.text_field :postal_code, autoforcus: true, id:"inputPostalCode" %></p>
+  <p>住所 <%= f.text_field :address, autoforcus: true, id:"inputAdress" %></p>
+  <p>電話番号 <%= f.text_field :telephone_number, autoforcus: true, id:"inputTelephoneNumber" %></p>
+  <p>メールアドレス <%= f.text_field :email, autoforcus: true, id:"inputEmail" %></p>
+  <%= f.submit "変更内容を保存" %>
+<% end %>
