@@ -15,6 +15,14 @@ class Public::CustomersController < ApplicationController
       redirect_to "/customers/my_page"
     end
     
+    def check
+        
+    end
+    
+    def withdrawal
+    
+    end
+    
     private
   
   def customer_params
