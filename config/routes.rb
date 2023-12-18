@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get "/about" => "homes#about"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
+    get "customers/check" => "customers#check"
+    patch "customers/withdrawal" => "customers#withdrawal"
    end
   
    namespace :admin do
