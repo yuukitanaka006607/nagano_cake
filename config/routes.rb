@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     get "customers/check" => "customers#check"
     patch "customers/withdrawal" => "customers#withdrawal"
    end
-  
+
    namespace :admin do
+    resources :items, only: [:create, :new]
     get "/" => "homes#top"
    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
