@@ -21,6 +21,9 @@
         </h1>
       <% elsif admin_signed_in? %>
         <h1>
+          <%= link_to "商品一覧", admin_path %>
+        </h1>
+        <h1>
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
         </h1>
       <% else %>
