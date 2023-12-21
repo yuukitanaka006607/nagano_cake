@@ -17,8 +17,9 @@ Rails.application.routes.draw do
    end
 
    namespace :admin do
-    resources :items, only: [:new, :create, :index, :show ]
+    resources :items, only: [:new, :create, :show ]
     get "/" => "homes#top"
+    get "items" => "items#index"
    end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
