@@ -1,0 +1,6 @@
+<div>
+  <%= image_tag @item.get_image(100,100) %>
+    <p><%= @item.name  %></p>
+    <p>商品説明<%= @item.introduction %></p>
+    <p>¥<%= rounded_price(@item.price*1.1) %>（税込）</p>
+</div>

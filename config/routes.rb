@@ -8,16 +8,18 @@ Rails.application.routes.draw do
   }
   root to: "public/homes#top"
    scope module: :public do
+    patch "customers/withdrawal" => "customers#withdrawal"
+    get "public/items" => "items#index"
+    resources :items, only: [:show]
     resources :customers, only: [:new, :create, :destroy, :update]
     get "/about" => "homes#about"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     get "customers/check" => "customers#check"
-    patch "customers/withdrawal" => "customers#withdrawal"
    end
 
    namespace :admin do
-    resources :items, only: [:new, :create, :show ]
+    resources :items, only: [:new, :create, :show, :edit, :update]
     get "/" => "homes#top"
     get "items" => "items#index"
    end
