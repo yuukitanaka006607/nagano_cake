@@ -1,1 +1,13 @@
-<h1>public/top</h1>
+<p>ようこそ、ながのCAKEへ！<br>
+このサイトは、ケーキ販売のECサイトになります。<br>
+会員でない方も商品の閲覧はできますが、<br>
+購入には会員登録が必要になります。</p>
+
+<h1>新着商品</h1>
+<div>
+  <% @items.each do |item| %>
+    <%= image_tag item.get_image(100,100) %>
+    <p><%= link_to item.name, item_path(item.id) %></p>
+    <p>¥<%= rounded_price(item.price*1.1) %></p>
+  <% end %>
+</div>

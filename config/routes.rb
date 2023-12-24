@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     get "customers/check" => "customers#check"
+    post "cart_items" => "cart_items#create"
+    get "cart_items" => "cart_items#index"
    end
 
    namespace :admin do
