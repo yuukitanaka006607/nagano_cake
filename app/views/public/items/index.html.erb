@@ -3,6 +3,6 @@
   <% @items.each do |item| %>
     <%= image_tag item.get_image(100,100) %>
     <p><%= link_to item.name, item_path(item.id) %></p>
-    <p>¥<%= item.price %></p>
+    <p>¥<%= rounded_price(item.price*1.1) %></p>
   <% end %>
 </div>
