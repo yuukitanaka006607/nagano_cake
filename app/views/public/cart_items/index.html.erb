@@ -1,1 +1,8 @@
 <h1>ショッピングカート</h1>
+<div>
+  <% @cart_item.each do |cart_item| %>
+    <%= image_tag cart_item.item.get_image(100,100) %>
+    <p><%= cart_item.item.name %></p>
+    <p>¥<%= rounded_price(cart_item.item.price*1.1) %></p>
+  <% end %>
+  </div>
