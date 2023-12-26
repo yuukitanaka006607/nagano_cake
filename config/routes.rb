@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get "customers/information/edit" => "customers#edit"
     get "customers/check" => "customers#check"
     post "cart_items" => "cart_items#create"
+    resources :cart_items, only: [:update]
     get "cart_items" => "cart_items#index"
    end
 

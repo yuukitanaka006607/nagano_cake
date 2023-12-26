@@ -3,6 +3,11 @@
   <% @cart_item.each do |cart_item| %>
     <%= image_tag cart_item.item.get_image(100,100) %>
     <p><%= cart_item.item.name %></p>
-    <p>¥<%= rounded_price(cart_item.item.price*1.1) %></p>
+    <p>¥<%= (cart_item.item.price*1.1).floor %></p>
+    <%= form_with model:cart_item, url:cart_items_path(cart_item.id), local:true do |f| %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.submit "変更", class: "btn btn-success" %>
+    <% end %>
+    <p><%= (cart_item.item.price*1.1).floor*cart_item.amount %></p>
   <% end %>
   </div>
