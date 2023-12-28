@@ -17,8 +17,10 @@ Rails.application.routes.draw do
     get "customers/information/edit" => "customers#edit"
     get "customers/check" => "customers#check"
     post "cart_items" => "cart_items#create"
+    delete "cart_items/destroy_all" => "cart_items#destroy_all"
     resources :cart_items, only: [:update, :destroy]
     get "cart_items" => "cart_items#index"
+
    end
 
    namespace :admin do
