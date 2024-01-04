@@ -10,13 +10,14 @@ class Public::CartItemsController < ApplicationController
        cart_item.save
        redirect_to cart_items_path
 
-    else @cart_item.save
-     redirect_to cart_items_path
+    else
+      @cart_item.save
+      redirect_to cart_items_path
     end
   end
 
   def index
-    @cart_item = CartItem.all
+    @cart_items = CartItem.all
     @sum = 0
   end
 
@@ -40,6 +41,6 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:item_id, :amount, :customer_id)
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 end

@@ -9,17 +9,18 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
    scope module: :public do
     patch "customers/withdrawal" => "customers#withdrawal"
+    resources :cart_items, only: [:index, :create, :update, :destroy] do
+      collection do
+        delete 'destroy_all'
+      end
+    end
     get "public/items" => "items#index"
     resources :items, only: [:show]
-    resources :customers, only: [:new, :create, :destroy, :update]
     get "/about" => "homes#about"
     get "customers/my_page" => "customers#show"
     get "customers/information/edit" => "customers#edit"
     get "customers/check" => "customers#check"
-    post "cart_items" => "cart_items#create"
-    delete "cart_items/destroy_all" => "cart_items#destroy_all"
-    resources :cart_items, only: [:update, :destroy]
-    get "cart_items" => "cart_items#index"
+    resources :customers, only: [:new, :create, :destroy, :update]
 
    end
 
