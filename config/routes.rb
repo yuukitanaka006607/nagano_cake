@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get "customers/check" => "customers#check"
     resources :customers, only: [:new, :create, :destroy, :update]
     post "orders/confirm" => "orders#confirm"
+    get "orders/complete" => "orders#complete"
     resources :orders, only: [:new, :create]
 
    end
