@@ -1,8 +1,25 @@
 <h1>注文歴詳細</h1>
-<p>購入者<%= @order.name %></p>
-<p>注文日<%= @order.created_at.strftime('%Y/%m/%d') %></p>
-<p>配送先  〒<%= @order.postal_code %><%= @order.address %><br>
-             <%= @order.name %></p>
-<p>支払方法  <%= @order.payment_method_i18n %></p>
+<p>購入者<%= @order_item.order.name %></p>
+<p>注文日<%= @order_item.order.created_at.strftime('%Y/%m/%d') %></p>
+<p>配送先  〒<%= @order_item.order.postal_code %><%= @order_item.order.address %><br>
+             <%= @order_item.order.name %></p>
+<p>支払方法  <%= @order_item.order.payment_method_i18n %></p>
 
-<table></table>
+<table>
+  <thead>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+  </thead>
+  <tbody>
+    <% @order_items.each do |order| %>
+    <tr>
+      <td><%= @order_item.item.name %></td>
+      <td><%= @order_item.item.with_tax_price %></td>
+      <td><%= @order_item.amount %></td>
+      <td><%= @order_item.item.with_tax_price*@order_item.amount %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
