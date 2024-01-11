@@ -28,6 +28,10 @@ class Public::OrdersController < ApplicationController
  
  def complete
  end
+ 
+ def index
+  @order_items = OrderItem.current_custommer
+ end
 
 
   private
