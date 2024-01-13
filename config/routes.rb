@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:new, :create, :destroy, :update]
     post "orders/confirm" => "orders#confirm"
     get "orders/complete" => "orders#complete"
-    resources :orders, only: [:new, :create]
+    resources :orders, only: [:new, :create, :index, :show]
 
    end
 

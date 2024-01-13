@@ -5,11 +5,18 @@
     <th>配送先</th>
     <th>注文商品</th>
     <th>支払金額</th>
+    <th>注文詳細</th>
   </thead>
-  <% @order_items.each do |order_item| %>
+  <% @orders.each do |order| %>
   <tbody>
     <tr>
-      <td><%= order_item.created_at.trftime('%Y/%m/%d') %></td>
+      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= order.customer.address %></td>
+      <% order.order_items.each do |order_item| %>
+      <td><%= order_item.item.name %></td>
+      <% end %>
+      <td><%= order.billing_amount %>円</td>
+      <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary"  %></td>
     </tr>
   </tbody>
   <% end %>

@@ -25,12 +25,19 @@ class Public::OrdersController < ApplicationController
     cart_items.destroy_all
     redirect_to orders_complete_path
  end
- 
+
  def complete
  end
- 
+
  def index
-  @order_items = OrderItem.current_custommer
+  @orders = current_customer.orders
+ end
+
+ def show
+   @order = Order.find(params[:id])
+   @order_items = @order.order_items
+   @sum = 0
+   @order.postage = 800
  end
 
 
