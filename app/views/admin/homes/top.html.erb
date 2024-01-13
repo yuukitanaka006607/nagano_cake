@@ -6,13 +6,13 @@
     <th>注文個数</th>
   </thead>
   <tbody>
-    <% @order_items.each do |order_item| %>
+    <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to order_item.created_at.strftime('%Y/%m/%d'), admin_order_path(order_item) %></td>
-      <td><%= order_item.order.name %></td>
-      <td><%= order_item.amount %></td>
+      <td><%= link_to order.created_at.strftime('%Y/%m/%d'), admin_order_path(order) %></td>
+      <td><%= order.customer.full_name %></td>
+      <td><%= order.order_items.sum(:amount) %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= paginate @order_items %>
+<%= paginate @orders %>
