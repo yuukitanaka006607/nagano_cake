@@ -1,8 +1,12 @@
-<h1>商品一覧</h1>
-<div>
-  <% @items.each do |item| %>
-    <%= image_tag item.get_image(100,100) %>
-    <p><%= link_to item.name, item_path(item.id) %></p>
-    <p>¥<%= rounded_price(item.price*1.1) %></p>
-  <% end %>
+<dic class="container text-center">
+  <h1>商品一覧　全<%= @items.count %>件</h1>
+  <div class="row">
+      <% @items.each do |item| %>
+      <div class="col-md-3">
+        <%= image_tag item.get_image(100,100) %>
+        <p><%= link_to item.name, item_path(item.id) %></p>
+        <p>¥<%= rounded_price(item.price*1.1) %></p>
+      </div>
+      <% end %>
+  </div>
 </div>

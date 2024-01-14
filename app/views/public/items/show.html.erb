@@ -1,12 +1,18 @@
-<div>
-  <%= image_tag @item.get_image(100,100) %>
-    <p><%= @item.name  %></p>
-    <p>商品説明<%= @item.introduction %></p>
-    <p>¥<%= rounded_price(@item.price*1.1) %>（税込）</p>
-    <p>数量を選択してください</p>
-    <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-      <%= f.hidden_field :item_id, :value => @item.id  %>
-      <%= f.select :amount, *[1..10] %>
-      <%= f.submit "カートへ入れる" %>
-    <% end %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-4">
+     <%= image_tag @item.get_image(200,200) %>
+    </div>
+    <div class="col-md-8">
+      <p><%= @item.name  %></p>
+      <p>商品説明<%= @item.introduction %></p>
+      <p>¥<%= rounded_price(@item.price*1.1) %>（税込）</p>
+      <p>数量を選択してください</p>
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id  %>
+        <%= f.select :amount, *[1..10] %>
+        <%= f.submit "カートへ入れる" %>
+      <% end %>
+    </div>
+  </div>
 </div>

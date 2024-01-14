@@ -1,13 +1,23 @@
-<p>ようこそ、ながのCAKEへ！<br>
-このサイトは、ケーキ販売のECサイトになります。<br>
-会員でない方も商品の閲覧はできますが、<br>
-購入には会員登録が必要になります。</p>
-
-<h1>新着商品</h1>
-<div>
-  <% @items.each do |item| %>
-    <%= image_tag item.get_image(100,100) %>
-    <p><%= link_to item.name, item_path(item.id) %></p>
-    <p>¥<%= rounded_price(item.price*1.1) %></p>
-  <% end %>
+<div class="container text-center">
+ <div>
+   <%= image_tag "cake.jpg", class: "background-image" %>
+  </div>
+  <div class="row">
+    <div class="col p-5">
+      <strong><h2>ようこそ、ながのCAKEへ！</h2></strong><br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。
+    </div>
+  </div>
+  <h1>新着商品<br></h1>
+  <div class="row">
+      <% @items.each do |item| %>
+      <div class="col-md-3">
+        <%= image_tag item.get_image(100,100) %>
+        <%= link_to item.name, item_path(item.id) %>
+        ¥<%= rounded_price(item.price*1.1) %>
+      </div>
+      <% end %>
+  </div>
 </div>
