@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container justify-content-center">
   <div class="row">
     <div class="col-md-4 p-5">
      <%= image_tag @item.get_image(300,300) %>
@@ -11,7 +11,7 @@
       <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
         <%= f.hidden_field :item_id, :value => @item.id  %>
         <%= f.select :amount, *[1..10] %>
-        <%= f.submit "カートへ入れる" %>
+        <%= f.submit "カートへ入れる", class:"btn btn-primary" %>
       <% end %>
     </div>
   </div>
