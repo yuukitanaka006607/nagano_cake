@@ -1,10 +1,15 @@
+<div class="container justify-content-center">
 <h1>商品詳細</h1>
-<div>
-  <%= image_tag @item.get_image(100,100) %>
-  <p>商品名:<%= @item.name %></p>
-  <p>商品説明<%= @item.introduction %></p>
-  <p>税込価格(税抜価格)<%=rounded_price(@item.price*1.1) %> (<%= @item.price %>)円</p>
+  <div class="row">
+    <div class="col-md-4 p-5">
+     <%= image_tag @item.get_image(300,300) %>
+    </div>
+    <div class="col-md-8 p-5">
+      <p>商品名:<%= @item.name %></p>
+      <p>商品説明<%= @item.introduction %></p>
+      <p>税込価格(税抜価格)<%=rounded_price(@item.price*1.1) %> (<%= @item.price %>)円</p>
 
-  <%= link_to "編集する", edit_admin_item_path %>
-
+      <%= link_to "編集する", edit_admin_item_path, class:"btn btn-success" %>
+    </div>
+  </div>
 </div>

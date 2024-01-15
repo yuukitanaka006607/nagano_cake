@@ -1,19 +1,19 @@
-<h1>商品一覧</h1>  <%= link_to "新規登録", new_admin_item_path %>
-<div>
-  <table>
-    <thead>
+<div class="container justify-content-center">
+  <h1>商品一覧 <%= link_to "新規登録", new_admin_item_path, class:"btn btn-primary" %></h1>
+    <table class="table table-hover table-inverse mt-5">
+      <thead>
+        <tr>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜き価格</th>
+        </tr>
+      </thead>
+      <% @items.each do |item| %>
       <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜き価格</th>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, admin_item_path(item.id) %></td>
+        <td><%= item.price %>円</td>
       </tr>
-    </thead>
-    <% @items.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
-      <td><%= item.price %>円</td>
-    </tr>
-    <% end %>
-  </table>
+      <% end %>
+    </table>
 </div>
