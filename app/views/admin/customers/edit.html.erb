@@ -1,15 +1,19 @@
-<p><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</p>
-
+<div class="containar d-flex justify-content-start p-5">
 <%= form_with model: @customer, url: admin_customer_path do |f| %>
+<strong><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</strong>
   <p>会員ID <%= @customer.id %></p>
-  <p>氏名 <%= f.text_field :last_name, autofocus: true, id:"inputLastName" %>
-          <%= f.text_field :first_name, autofocus: true, id:"inputFirstName" %></p>
-  <p>フリガナ <%= f.text_field :last_name_kana, autofocus: true, id:"inputLastNameKana" %>
-              <%= f.text_field :first_name_kana, autofocus: true, id:"inputFirstNameKana" %></p>
-  <p>郵便番号 <%= f.text_field :postal_code, autofocus: true, id:"inputPostalCode" %></p>
-  <p>住所 <%= f.text_field :address, autofocus: true, id:"inputAdress" %></p>
-  <p>電話番号 <%= f.text_field :telephone_number, autofocus: true, id:"inputTelephoneNumber" %></p>
-  <p>メールアドレス <%= f.text_field :email, autofocus: true, id:"inputEmail" %></p>
+  <div class="input-group m-3">
+    氏名  <%= f.text_field :last_name, autofocus: true, id:"inputLastName", class:"form-control" %>
+          <%= f.text_field :first_name, autofocus: true, id:"inputFirstName", class:"form-control"  %>
+  </div>
+  <div class="input-group m-3">
+    フリガナ  <%= f.text_field :last_name_kana, autofocus: true, id:"inputLastNameKana", class:"form-control" %>
+                <%= f.text_field :first_name_kana, autofocus: true, id:"inputFirstNameKana", class:"form-control" %>
+  </div>
+  <p>郵便番号 <%= f.text_field :postal_code, autofocus: true, id:"inputPostalCode", class:"form-control" %></p>
+  <p>住所 <%= f.text_field :address, autofocus: true, id:"inputAdress", class:"form-control" %></p>
+  <p>電話番号 <%= f.text_field :telephone_number, autofocus: true, id:"inputTelephoneNumber", class:"form-control" %></p>
+  <p>メールアドレス <%= f.text_field :email, autofocus: true, id:"inputEmail", class:"form-control" %></p>
   <p>会員ステータス
   <div><%= f.radio_button :is_active, true, cheched:@customer.is_active == true, id: 'status-active' %>
        <%= f.label :is_active, '有効', for: 'status-active' %></div>
@@ -17,5 +21,6 @@
        <%= f.label :is_active, '退会済み', for: 'status-deleted' %></div>
   </p>
 
-  <%= f.submit "変更を保存" %>
+  <%= f.submit "変更を保存", class:"btn btn-success" %>
 <% end %>
+</div>
