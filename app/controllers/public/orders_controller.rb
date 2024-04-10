@@ -15,6 +15,7 @@ class Public::OrdersController < ApplicationController
   end
 
  def create
+   @order = Order.new(order_params)
     cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
     @order.postage = 800
@@ -30,7 +31,7 @@ class Public::OrdersController < ApplicationController
  end
 
  def index
-  @orders = current_customer.orders
+  @orders = current_customer.orders.page(params[:page])
  end
 
  def show
